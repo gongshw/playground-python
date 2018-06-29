@@ -3,7 +3,7 @@
 """
 算24点
 """
-from decimal import Decimal
+from fractions import Fraction
 import sys
 
 
@@ -34,7 +34,7 @@ class Express:
 
 class Num:
     def __init__(self, n):
-        self.num = Decimal(n)
+        self.num = Fraction(n)
 
     def __str__(self):
         return str(self.num)
