@@ -4,6 +4,7 @@
 算24点
 """
 from fractions import Fraction
+import itertools
 import sys
 
 
@@ -71,10 +72,8 @@ def generate(nums):
         yield Num(nums[0])
         return
     for d in divide_nums(nums):
-        for op in OPS:
-            for e1 in generate(d[0]):
-                for e2 in generate(d[1]):
-                    yield Expression(e1, op, e2)
+        for op, e1, e2 in itertools.product(OPS, generate(d[0]), generate(d[1])):
+            yield Expression(e1, op, e2)
 
 
 def divide_nums(nums):
