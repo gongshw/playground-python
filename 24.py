@@ -19,7 +19,7 @@ class BiOperator:
         return self.operation(n1, n2)
 
 
-class Express:
+class Expression:
     def __init__(self, e1, op, e2):
         self.e1 = e1
         self.op = op
@@ -74,7 +74,7 @@ def generate(nums):
         for op in OPS:
             for e1 in generate(d[0]):
                 for e2 in generate(d[1]):
-                    yield Express(e1, op, e2)
+                    yield Expression(e1, op, e2)
 
 
 def divide_nums(nums):
