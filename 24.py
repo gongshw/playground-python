@@ -59,7 +59,7 @@ def solve(nums):
             value = expression.value()
             if value == GAME_TARGET:
                 return expression
-        except ZeroDivisionError:
+        except Exception:
             pass
     return None
 
@@ -92,6 +92,20 @@ def divide0(nums):
         yield [d[0], d[1]+[nums[0]]]
 
 
+def parse_nums(nums):
+    for n in nums:
+        if n == "j" or n == 'J':
+            yield 11
+        elif n == 'q' or n == 'Q':
+            yield 12
+        elif n == 'k' or n == 'K':
+            yield 13
+        elif n == 'a' or n == 'A':
+            yield 0
+        else:
+            yield int(n)
+
+
 if __name__ == '__main__':
-    nums_to_solve = sys.argv[1:]
+    nums_to_solve = list(parse_nums(sys.argv[1:]))
     print(solve(nums_to_solve), '=', GAME_TARGET)
