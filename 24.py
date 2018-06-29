@@ -47,7 +47,7 @@ OPS = [
     BiOperator('+', lambda n1, n2: (n1 + n2)),
     BiOperator('-', lambda n1, n2: (n1 - n2)),
     BiOperator('*', lambda n1, n2: (n1 * n2)),
-    BiOperator('-', lambda n1, n2: (n1 / n2))
+    BiOperator('/', lambda n1, n2: (n1 / n2))
 ]
 
 GAME_TARGET = 24
